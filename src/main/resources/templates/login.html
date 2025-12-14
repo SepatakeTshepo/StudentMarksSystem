@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>
+    Student Marks System
+</title>
+</head>
+
+<body>
+
+    <h3>Enter lecturers details </h3>
+    <div th:if="${error}" class="error">
+        <p th:text="${error}"></p>
+    </div>
+
+    <form action="login " method="post">
+        <label for="id ">Enter ID: </label>
+        <input type="number " name ="id " required>
+
+        <label for="pin">Enter Pin</label>
+        <input type="number" name ="pin">
+
+        <button type="submit">login</button>
+
+
+    </form>
+
+</body>
+
+
+
+
+</html>

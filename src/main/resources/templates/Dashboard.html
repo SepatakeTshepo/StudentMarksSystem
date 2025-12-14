@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<title>
+
+   Student Marks Dashboard
+</title>
+
+</head>
+<body>
+    <h3>lecturers Dashboard </h3>
+
+    <div>
+        <h4>Enter Student Details</h4>
+        <form action="/addStudent " method = post >
+ 
+            <input type="number" name = "id" placeholder="studentId " required>
+            <input type="text" name="name " placeholder="studentName" required>
+            <input type="text" name="module " placeholder="moduleName" required>
+            <input type="number" name="percentage " placeholder="modulePecentage " required>
+
+        </form>
+
+    </div>
+
+   
+</body>
+
+
+</html>
