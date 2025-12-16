@@ -14,15 +14,10 @@
         <p th:text="${error}"></p>
     </div>
 
-    <form action="login " method="post">
-        <label for="id ">Enter ID: </label>
-        <input type="number " name ="id " required>
-
-        <label for="pin">Enter Pin</label>
-        <input type="number" name ="pin">
-
-        <button type="submit">login</button>
-
+    <form th:action="@{/login}" method="post">
+        <input type="number" name="id" placeholder="Lecturer ID" required>
+    <input type="number" name="pin" placeholder="PIN" required>
+    <button type="submit">Login</button>
 
     </form>
 

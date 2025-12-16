@@ -10,6 +10,8 @@ import com.example.studentMarks.Entity.StudentDetails;
 import com.example.studentMarks.StudentRepository.LecturerRepository;
 import com.example.studentMarks.StudentRepository.studentRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class StudentController {
 
@@ -27,13 +29,16 @@ public class StudentController {
     }
 
     @PostMapping("/login")
-    public String processLogin(@RequestParam Long id, @RequestParam String pin, Model model) {
+    public String processLogin(@RequestParam Long id, @RequestParam int pin , HttpSession session, Model model) {
+      System.out.println("LOGIN ATTEMPT → id=" + id + ", pin=" + pin);
         Lecturer lecturer = lecturerRepo.findByIdAndPin(id, pin);
+
         
         if (lecturer != null) {
+            session.setAttribute("lecturer", lecturer);
             return "redirect:/dashboard"; // Success! Go to dashboard
         } else {
-            model.addAttribute("error", "Invalid ID or PIN");
+            model.addAttribute("error","Invalid ID or PIN") ;
             return "login"; // Failed! Stay on login page
         }
     }
@@ -42,14 +47,13 @@ public class StudentController {
 
     @GetMapping("/dashboard")
     public String showDashboard(Model model, @RequestParam(required = false) String search) {
-        if (search != null) {
-            model.addAttribute("students", studentRepo.findByName(search));
+        if (search != null && !search.isEmpty()) {
+            model.addAttribute("students", studentRepo.findByName(search.trim()));
         } else {
-            model.addAttribute("students", studentRepo.findAll());
+      model.addAttribute("students", studentRepo.findAll());
         }
         return "dashboard"; // Loads dashboard.html
     }
-
     // --- ADD STUDENT SECTION ---
 
     @PostMapping("/addStudent")

@@ -13,16 +13,16 @@ public class StudentDetails {
     private Long id;
 
 
-       @Column(nullable = false ,length = 50)
+       @Column(nullable = false )
     private String name ;
 
-       @Column(nullable = false ,length = 50)
+       @Column(nullable = false )
     private String course;
 
-       @Column(nullable = false ,length = 50)
+       @Column(nullable = false )
     private String module ;
 
-       @Column(nullable = false ,length = 50)
+       @Column(nullable = false )
     private double percentage ;
 
 
