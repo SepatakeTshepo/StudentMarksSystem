@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        Add-Student Dashboard
+    </head>
+    <body>
+        
+
+        <form th:action="@{/student/add}" method="post">
+
+             <input type="number" name="Id" id="Id" placeholder="studentId" required>
+            <label for="Name">Add Name</label>
+            <br><br>
+            <input type="text" name="name" id ="Name" placeholder="studentName" required>
+            <br><br>
+            <label for="course">Add Course</label>
+            <input type="text" name="course" id="course" placeholder="courseName" required>
+            <br><br>
+            <label for="module">Add Module</label>
+            <input type="text" name="module" id = "module" placeholder="moduleName" required>
+            <br><br>
+            <label for="percentage">Add Marks (%) </label>
+            <input type="number" name ="percentage" id ="percentage" placeholder="percentage" required>
+
+        </form>
+
+    </body>
+</html>

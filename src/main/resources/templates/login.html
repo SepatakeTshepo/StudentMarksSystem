@@ -9,15 +9,20 @@
 
 <body>
 
-    <h3>Enter lecturers details </h3>
+    <h3>Enter Lecturers details </h3>
     <div th:if="${error}" class="error">
         <p th:text="${error}"></p>
     </div>
 
+    
     <form th:action="@{/login}" method="post">
-        <input type="number" name="id" placeholder="Lecturer ID" required>
-    <input type="number" name="pin" placeholder="PIN" required>
-    <button type="submit">Login</button>
+        <label for="id">Enter Id </label>
+        <input type="number" name="id" placeholder="userId" required>
+        <br><br>
+        <label for="pin">Enter pin</label>
+    <input type="number" name="pin" placeholder="userPin" required>
+    <br><br>
+    <button type="submit">login</button>
 
     </form>
 

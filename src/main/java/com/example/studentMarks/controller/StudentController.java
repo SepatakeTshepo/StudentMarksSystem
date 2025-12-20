@@ -36,16 +36,17 @@ public class StudentController {
         
         if (lecturer != null) {
             session.setAttribute("lecturer", lecturer);
-            return "redirect:/dashboard"; // Success! Go to dashboard
+            return "redirect:/student/Menu"; // Success! Go to dashboard
         } else {
             model.addAttribute("error","Invalid ID or PIN") ;
             return "login"; // Failed! Stay on login page
         }
     }
 
+    
     // --- DASHBOARD SECTION ---
 
-    @GetMapping("/dashboard")
+    /*@GetMapping("/dashboard")
     public String showDashboard(Model model, @RequestParam(required = false) String search) {
         if (search != null && !search.isEmpty()) {
             model.addAttribute("students", studentRepo.findByName(search.trim()));
@@ -68,5 +69,5 @@ public class StudentController {
     public String deleteStudent(@PathVariable Long id) {
         studentRepo.deleteById(id);
         return "redirect:/dashboard";
-    }
+    }*/
 }
