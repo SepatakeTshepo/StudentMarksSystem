@@ -8,9 +8,10 @@
 
         <form th:action="@{/student/add}" method="post">
 
-             <input type="number" name="Id" id="Id" placeholder="studentId" required>
-            <label for="Name">Add Name</label>
-            <br><br>
+           <label for="studentNumber">Add studentNumber </label>
+           <input type="number" name="studentNumber" id="studentNumber" required>
+           <br><br>
+             <label for="Name">Add Name</label>
             <input type="text" name="name" id ="Name" placeholder="studentName" required>
             <br><br>
             <label for="course">Add Course</label>
@@ -21,7 +22,8 @@
             <br><br>
             <label for="percentage">Add Marks (%) </label>
             <input type="number" name ="percentage" id ="percentage" placeholder="percentage" required>
-
+             <br><br>
+             <button type="submit">Add</button>
         </form>
 
     </body>

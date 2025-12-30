@@ -6,7 +6,8 @@ import com.example.studentMarks.Entity.Lecturer;
 
 public interface LecturerRepository extends JpaRepository<Lecturer , Long > {
 
-    Lecturer findByIdAndPin(Long id , int pin );
+    //Lecturer findByIdAndPin(Long id , int pin );
+    Lecturer findByUsername (String username);
 
     
 }

@@ -21,27 +21,20 @@ public class StudentController {
     @Autowired
     private LecturerRepository lecturerRepo;
 
-    // --- LOGIN SECTION ---
+    // --- LOGIN SECTION --- //
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String showLoginPage() {
         return "login"; // Loads login.html
     }
 
-    @PostMapping("/login")
-    public String processLogin(@RequestParam Long id, @RequestParam int pin , HttpSession session, Model model) {
-      System.out.println("LOGIN ATTEMPT → id=" + id + ", pin=" + pin);
-        Lecturer lecturer = lecturerRepo.findByIdAndPin(id, pin);
+    @GetMapping("/Menu")
+    public String showMenu (){
 
-        
-        if (lecturer != null) {
-            session.setAttribute("lecturer", lecturer);
-            return "redirect:/student/Menu"; // Success! Go to dashboard
-        } else {
-            model.addAttribute("error","Invalid ID or PIN") ;
-            return "login"; // Failed! Stay on login page
-        }
+
+        return "Menu";
     }
+    
 
     
     // --- DASHBOARD SECTION ---

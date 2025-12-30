@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 
 import com.example.studentMarks.Entity.StudentDetails;
 import com.example.studentMarks.StudentRepository.studentRepository;
@@ -36,66 +39,86 @@ public class MenuController {
      @PostMapping("/add")
     public String addStudent( StudentDetails student){
 
+           System.out.println("Student Number = " + student.getStudentNumber());
+        
         studentRepo.save(student);
         return "redirect:/student/Menu";}
 
-    @GetMapping("/search")
+    @GetMapping("/searchStudent")
     public String search (){
 
-        return "Search-Student";
+        return "searchStudent";
 
     }
-
-   @GetMapping("/search/result")
+@GetMapping("/search")
 public String searchStudent(
-        @RequestParam String type,
-        @RequestParam String keyword,
+        @RequestParam(required = false) String studentNumber ,
+        @RequestParam(required = false) String name,
         Model model) {
 
     StudentDetails student = null;
 
-    if (type.equals("id")) {
-        Long id = Long.parseLong(keyword);
-        student = studentRepo.findById(id).orElse(null);
+    if (studentNumber != null && !studentNumber.isEmpty()) {
+        try {
+            Long number = Long.parseLong(studentNumber);
+            student = studentRepo.findByStudentNumber(number);
+        } catch (NumberFormatException e) {
+            model.addAttribute("error", "Invalid studentNumber format");
+           
+        }
 
-    } else if (type.equals("name")) {
-        student = studentRepo.findByName(keyword);
+    } else if (name != null && !name.isEmpty()) {
+        student = studentRepo.findByName(name);
     }
 
     model.addAttribute("student", student);
-    return "Search-Student";
+    return "searchStudent";
+}
+
+@GetMapping ("/list")
+public String list (Model model){
+
+     model.addAttribute("students", studentRepo.findAll());
+    return "list-students";
+}
+
+
+@GetMapping("/edit/{id}")
+public String EditStudent(@PathVariable Long id , Model model){
+
+    StudentDetails student = studentRepo.findById(id)
+    .orElseThrow(()-> new IllegalArgumentException("Invalid student id :" + id));
+
+    model.addAttribute("student" , student);
+
+
+
+
+
+    return "editStudent";
 }
 
 
 
-    @GetMapping("/edit")
-    public String Edit (){
-
-        return "Edit-Student";}
-
-        @PostMapping("/edit")
-        public String EditStudent(StudentDetails student){
+        @PostMapping("/update")
+        public String EditStudent(@ModelAttribute StudentDetails student){
 
             studentRepo.save(student);
             return "redirect:/student/Menu";}
     
 
-   @GetMapping("/delete")
-    public String Delete(){
+   @GetMapping("/delete/{id}")
+    public String Delete(@PathVariable Long id){
 
-        return "Delete-Student";
+        studentRepo.deleteById(id);
+
+        return "redirect/student/list";
     }
 
-    @PostMapping("/delete")
-    public String deleteStudent(@RequestParam Long Id ){
-
-        studentRepo.deleteById(Id);
-        return "redirect:/student/Menu";
 
 
 
-
-    }
+    
     
 
 

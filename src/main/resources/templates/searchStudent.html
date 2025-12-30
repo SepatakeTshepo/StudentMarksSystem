@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Student</title>
+</head>
+<body>
+
+<h1>Search Student</h1>
+
+<form th:action="@{/student/search}" method="get">
+
+    <label>Student Number:</label>
+    <input type="text" name="studentNumber">
+    <br><br>
+
+    <strong>OR</strong>
+    <br><br>
+
+    <label>Student Name:</label>
+    <input type="text" name="name">
+    <br><br>
+
+    <button type="submit">Search</button>
+
+</form>
+
+<!-- Error message -->
+<p th:if="${error}" th:text="${error}" style="color:red"></p>
+
+<!-- Result -->
+<div th:if="${student != null}">
+    <h3>Student Found</h3>
+    <p>Student Number: <span th:text="${student.studentNumber}"></span></p>
+    <p>Name: <span th:text="${student.name}"></span></p>
+    <p>Course: <span th:text="${student.course}"></span></p>
+    <p>Module: <span th:text="${student.module}"></span></p>
+    <p>Percentage: <span th:text="${student.percentage}"></span></p>
+</div>
+
+<div th:if="${student == null}">
+    <p>No student found</p>
+</div>
+
+</body>
+</html>
