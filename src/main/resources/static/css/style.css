@@ -1,0 +1,145 @@
+body.login-page {
+
+   background-color: darkslategrey;
+   margin: 0;
+   display: flex;
+   justify-content:center;
+   align-items: center;
+   height: 100vh;
+   font-family: Arial, Helvetica, sans-serif;
+   color: white;
+}
+
+.login-card{
+
+    background-color: rgb(5, 6, 6);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: inset;
+    text-align: left;
+    width: 300px;
+
+
+}
+
+input{
+
+
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius:4px ;
+    border:none ;
+}
+
+button {
+
+    background-color:blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    text-align: center;
+    border-radius: 100px;
+    cursor: pointer;
+
+
+
+}
+
+.Menu-body {
+
+    background-color: slategrey;
+    display: block;
+
+
+}
+
+.Menu-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: slategrey;
+    color: whites;
+
+
+}
+
+.Menu-list{
+
+ list-style: none;
+ padding: 0px;
+}
+
+.Menu-list li{
+
+margin: 20px 0;
+
+}
+
+.Menu-list a{
+
+    display: block;
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    background-color: darkslategrey;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: cyan;
+    transition: 0.3s;
+
+}
+
+.Menu-list a:hover{
+
+    background-color: cyan;
+    transform: translateY(-5px);
+
+}
+h3 {
+
+    text-align: center;   
+    width: 100%;         
+    margin-top: 0;   
+    color: white;    
+    font-family: Arial, sans-serif;
+}
+
+.Menu-a{
+    margin-top: 0;       /* Removes the default space above the buttons */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 0;
+}
+
+
+.Form-card{
+background-color: white;
+padding : 10px 15px;
+width: 410px;
+border-radius: 6px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+text-align:left;
+margin: auto;
+}
+
+
+body {
+    background-color: #2f4f4f; /* Your dark theme */
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    min-height: 100vh;       /* Makes the background cover the whole screen */
+    padding: 20px;           /* Safety gap so box never touches screen edges */
+}

@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>
         Add-Student Dashboard
+        </title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     </head>
     <body>
         
-
+<div class="page-wrapper">
+    <div class="Form-card">
         <form th:action="@{/student/add}" method="post">
 
-           <label for="studentNumber">Add studentNumber </label>
-           <input type="number" name="studentNumber" id="studentNumber" required>
+            <h2>Add Student</h2>
+        
+           <label for="studentNumber">Student number </label>
+           <input type="number" name="studentNumber" id="studentNumber" placeholder="e.g 2520115" required>
            <br><br>
-             <label for="Name">Add Name</label>
-            <input type="text" name="name" id ="Name" placeholder="studentName" required>
+             <label for="Name">First name</label>
+            <input type="text" name="name" id ="Name" placeholder="Thabang" required>
             <br><br>
-            <label for="course">Add Course</label>
-            <input type="text" name="course" id="course" placeholder="courseName" required>
+            <label for="course">Course</label>
+            <input type="text" name="course" id="course" placeholder="Bsc Computer Science" required>
             <br><br>
-            <label for="module">Add Module</label>
-            <input type="text" name="module" id = "module" placeholder="moduleName" required>
+            <label for="module">Module</label>
+            <input type="text" name="module" id = "module" placeholder="Operating Systems" required>
             <br><br>
-            <label for="percentage">Add Marks (%) </label>
-            <input type="number" name ="percentage" id ="percentage" placeholder="percentage" required>
+            <label for="percentage">Marks (%) </label>
+            <input type="number" name ="percentage" id ="percentage" placeholder="80%" required>
              <br><br>
              <button type="submit">Add</button>
         </form>
-
+</div>
+</div>
     </body>
 </html>

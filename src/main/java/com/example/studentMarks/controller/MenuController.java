@@ -86,25 +86,22 @@ public String list (Model model){
 @GetMapping("/edit/{id}")
 public String EditStudent(@PathVariable Long id , Model model){
 
-    StudentDetails student = studentRepo.findById(id)
-    .orElseThrow(()-> new IllegalArgumentException("Invalid student id :" + id));
+    StudentDetails student =
+            studentRepo.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Student not found"));
 
     model.addAttribute("student" , student);
-
-
-
-
 
     return "editStudent";
 }
 
 
 
-        @PostMapping("/update")
+        @PostMapping("/updateStudent")
         public String EditStudent(@ModelAttribute StudentDetails student){
 
             studentRepo.save(student);
-            return "redirect:/student/Menu";}
+            return "redirect:/student/list";}
     
 
    @GetMapping("/delete/{id}")
@@ -116,7 +113,11 @@ public String EditStudent(@PathVariable Long id , Model model){
     }
 
 
-
+@GetMapping("/view")
+public String viewStudents(Model model) {
+    model.addAttribute("students", studentRepo.findAll());
+    return "listStudent"; 
+}
 
     
     

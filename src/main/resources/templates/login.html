@@ -3,12 +3,13 @@
 <head>
 
 <title>
-    Student Marks System
-</title>
+    Student Marks System </title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 
-<body>
+<body class="login-page" >
 
+    <div class="login-card" >
     <h2>Lecturer login</h2>
     <form th:action="@{/login}" method="post">
 
@@ -21,6 +22,7 @@
         <br><br>
 
         <button type="submit">login</button>
+        </div>
 
         <div th:if ="${param.error}">
             <p>Invalid username or password</p>

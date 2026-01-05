@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" >
-    <head>
+   
          
         <head>
             <title>Menu</title>
+             <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
         </head>
 
-    </head>
+   
 
-    <body>
-        
-       <h3> Menu</h3>
+    <body class="Menu-body">
 
-       <div>
-        <ul>
+      <div class="Menu-a"> 
+       <h3 class="menu"> Menu</h3>
+     
+       <div class="Menu-container">
+        <ul class="Menu-list">
            
             <li><a th:href="@{/student/add}"> Add Student</a></li>
             <li><a th:href="@{/student/searchStudent}"> Search Student</a></li>
             <li><a th:href="@{/student/list}"> View Student</a></li>
-            <li><a th:href="@{/student/delete}">Delete Student</a></li>
+            
   
 
         </ul>
 
-
+ </div> 
        </div>
 
     </body>

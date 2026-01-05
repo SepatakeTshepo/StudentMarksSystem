@@ -38,11 +38,15 @@ public class StudentDetails {
         this.percentage = percentage ;
     }
     
-    public Long getId() {
-        return id;
-    }
+ 
 
+public Long getId() {
+    return id;
+}
 
+public void setId(Long id) {
+    this.id = id;
+}
     public void setStudentNumber (Long studentNumber ){this.studentNumber = studentNumber;}
     public Long getStudentNumber (){return studentNumber ;}
 
