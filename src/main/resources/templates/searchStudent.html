@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    
     <title>Search Student</title>
+   <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body class="search-card" >
 
+    <div class="search-container">
 <h1>Search Student</h1>
 
 <form th:action="@{/student/search}" method="get">
 
+    <div class="Form-group">
+
     <label>Student Number:</label>
     <input type="text" name="studentNumber">
     <br><br>
+    </div>
 
-    <strong>OR</strong>
+   <p class="OR-TEXT"> <strong>OR</strong>
     <br><br>
-
+    </p>
+<div form="Form-group">
     <label>Student Name:</label>
     <input type="text" name="name">
     <br><br>
-
+</div>
     <button type="submit">Search</button>
 
 </form>
-
+</div>
 <!-- Error message -->
 <p th:if="${error}" th:text="${error}" style="color:red"></p>
 
 <!-- Result -->
-<div th:if="${student != null}">
+<div class="results" th:if="${student != null}">
     <h3>Student Found</h3>
     <p>Student Number: <span th:text="${student.studentNumber}"></span></p>
     <p>Name: <span th:text="${student.name}"></span></p>
@@ -39,7 +45,7 @@
 </div>
 
 <div th:if="${student == null}">
-    <p>No student found</p>
+    <p class="No-results">No student found</p>
 </div>
 
 </body>

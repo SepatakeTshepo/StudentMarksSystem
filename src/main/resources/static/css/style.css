@@ -1,3 +1,5 @@
+
+
 body.login-page {
 
    background-color: darkslategrey;
@@ -46,6 +48,8 @@ button {
 
 
 }
+
+/*Menu */
 
 .Menu-body {
 
@@ -122,6 +126,7 @@ h3 {
     gap: 0;
 }
 
+/* Add*/
 
 .Form-card{
 background-color: white;
@@ -131,6 +136,18 @@ border-radius: 6px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 text-align:left;
 margin: auto;
+}
+.Form-card input{
+
+     padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+.Form-card label{
+    font-weight: 600;
+    margin-bottom: 4px;
 }
 
 
@@ -142,4 +159,157 @@ body {
     align-items: center;     /* Centers vertically */
     min-height: 100vh;       /* Makes the background cover the whole screen */
     padding: 20px;           /* Safety gap so box never touches screen edges */
+}
+
+
+/*Edit */
+
+.Edit-container{
+
+    background-color: white;
+    padding: 10px 15px;
+    width: 410px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin: auto;
+}
+
+.Form-group{
+
+display: flex;
+flex-direction:column;
+margin-bottom: 12px;
+}
+
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.form-group input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background: #1e40ff;
+    color: white;
+    cursor: pointer;
+}
+
+/*Search a student*/
+
+
+.search-container{
+
+    width: 420px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.Form-group{
+
+    margin-bottom: 12px;
+}
+
+.Form-group input {
+
+width: 100%;
+padding: 8px;
+border-radius: 6px;
+}
+
+.OR-TEXT{
+
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.No-results{
+margin-top: 15px;
+    color: #ff4444;
+    font-weight: bold;
+
+}
+
+/*View Student */
+
+
+
+.head-title{
+
+text-align:initial;
+margin-top: 30px;
+font-size: 28px;
+}
+
+.Table-body{
+
+    width: 90%;
+    margin: auto;
+    overflow-x: auto;
+}
+
+.student-table{
+
+width: 100%;
+border-collapse: collapse;
+ border-radius: 8px;
+ overflow: hidden;
+ box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+}
+
+.student-table{
+
+    background-color: #2f5d5b;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.student-table td{
+
+    padding :10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/*.student-table tr:nth-child(even) {
+    background-color: #f4f7f7;
+}
+
+.student-table tr:hover {
+    background-color: #e0eeee;
+}*/
+
+.btn {
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.btn.edit {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn.delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.85;
 }

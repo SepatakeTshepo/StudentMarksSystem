@@ -48,32 +48,35 @@ public class MenuController {
     public String search (){
 
         return "searchStudent";
-
     }
+
 @GetMapping("/search")
 public String searchStudent(
-        @RequestParam(required = false) String studentNumber ,
+        @RequestParam(required = false) String studentNumber,
         @RequestParam(required = false) String name,
         Model model) {
 
     StudentDetails student = null;
+    boolean searched = false;
 
-    if (studentNumber != null && !studentNumber.isEmpty()) {
-        try {
-            Long number = Long.parseLong(studentNumber);
-            student = studentRepo.findByStudentNumber(number);
-        } catch (NumberFormatException e) {
-            model.addAttribute("error", "Invalid studentNumber format");
-           
+    if ((studentNumber != null && !studentNumber.isEmpty()) ||
+        (name != null && !name.isEmpty())) {
+
+        searched = true;
+
+        if (studentNumber != null && !studentNumber.isEmpty()) {
+            student = studentRepo.findByStudentNumber(Long.parseLong(studentNumber));
+        } else if (name != null && !name.isEmpty()) {
+            student = studentRepo.findByName(name);
         }
-
-    } else if (name != null && !name.isEmpty()) {
-        student = studentRepo.findByName(name);
     }
 
     model.addAttribute("student", student);
+    model.addAttribute("searched", searched);
+
     return "searchStudent";
 }
+
 
 @GetMapping ("/list")
 public String list (Model model){

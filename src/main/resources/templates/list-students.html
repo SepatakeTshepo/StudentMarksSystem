@@ -2,12 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>List of Students</title>
+   <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
-<h2>List of Students</h2>
+    <div >
+<h2 class="head-title" >List of Students</h2>
+    </div>
 
-<table border="1">
+<div class="Table-body">
+<table border="1" class="student-table">
     <thead>
         <tr>
             <th>ID</th>
@@ -42,6 +46,6 @@
         </tr>
     </tbody>
 </table>
-
+</div>
 </body>
 </html>
